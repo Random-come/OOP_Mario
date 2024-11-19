@@ -3,7 +3,7 @@ package model;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class GameObject {
+public abstract class GameObject {
     private double x,y;
     private double velX, velY;
     private Dimension dimension;
