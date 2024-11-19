@@ -11,7 +11,5 @@ public abstract class GameObject {
     private double gravityAcc;
     private boolean falling, jumping = false;
 
-    public abstract void tick();
-
     
 }
