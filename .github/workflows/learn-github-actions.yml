@@ -1,5 +1,5 @@
 name: learn-github-actions
-run-name: ${{ github.actor }} ${{github.action}}
+run-name: ${{ github.actor }}
 on: [push]
 jobs:
   check-bats-version:
@@ -11,4 +11,4 @@ jobs:
           node-version: '20'
       - run: npm install -g bats
       - run: bats -v
-
+      - run: echo "Bats version check completed successfully!"
