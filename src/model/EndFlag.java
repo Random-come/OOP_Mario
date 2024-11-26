@@ -12,7 +12,7 @@ public class EndFlag extends GameObject{
     }
 
     @Override
-    public void updateLocation() {//anchor the position of the end flags
+    public void updateLocation() {//anchor the position of the end flags (the flag fall)
         if(touched){
             if(getY() + getDimension().getHeight() >= 576){
                 setFalling(false);

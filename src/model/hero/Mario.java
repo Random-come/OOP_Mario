@@ -1,1 +1,4 @@
-this is mario
+package model.hero;
+
+public class Mario {
+}
