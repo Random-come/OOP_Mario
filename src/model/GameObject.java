@@ -40,14 +40,14 @@ public abstract class GameObject {
     }
 
     public void updateLocation() {
-        if(jumping && velY <= 0){
+        if(jumping && velY <= 0){//reach the peak of jumping -> falling
             jumping = false;
             falling = true;}
-        else if(jumping){
+        else if(jumping){//while jumping state
             velY = velY - gravityAcc;
             y = y - velY;}
 
-        if(falling){
+        if(falling){//while falling state
             y = y + velY;
             velY = velY + gravityAcc;}
 
@@ -104,6 +104,7 @@ public abstract class GameObject {
     public void setGravityAcc(double gravityAcc) {
         this.gravityAcc = gravityAcc;
     }
+
     public Rectangle getTopBounds(){
         return new Rectangle((int)x+dimension.width/6, (int)y, 2*dimension.width/3, dimension.height/2);
     }
