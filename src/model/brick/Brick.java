@@ -1,1 +1,1 @@
-this is brick
+package model.brick;
