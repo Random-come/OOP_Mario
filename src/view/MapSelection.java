@@ -4,16 +4,16 @@
  */
 package view;
 
+import java.awt.*;
+import java.util.ArrayList;
+
 /**
  *
  * @author Admin
  */
 public class MapSelection {
+    private ArrayList<String> maps = new ArrayList<>();
+    private MapSelectionItem[] mapSelectionItems;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        // TODO code application logic here
-    }
+    
 }

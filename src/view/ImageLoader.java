@@ -55,17 +55,19 @@ public class ImageLoader {
         }
         return image.getSubimage((col - 1) * 48, (row - 1) * 48, w, h);
     }
-
+    
+    
+    //This will work when Character/hero/Mario hit an object(Brick) or moving left or right
     public BufferedImage[] getLeftFrames(int marioForm) {
         BufferedImage[] leftFrames = new BufferedImage[5];
         int col = 1;
         int width = 52, height = 48;
 
-        if (marioForm == 1) { //super mario
+        if (marioForm == 1) { //super mario AKA basic mario
             col = 4;
             width = 48;
             height = 96;
-        } else if (marioForm == 2) { //fire mario
+        } else if (marioForm == 2) { //fire mario AKA basic wasa fed a mushroom 
             col = 7;
             width = 48;
             height = 96;
@@ -82,11 +84,11 @@ public class ImageLoader {
         int col = 2;
         int width = 52, height = 48;
 
-        if (marioForm == 1) { //super mario
+        if (marioForm == 1) { //super mario AKA basic mario
             col = 5;
             width = 48;
             height = 96;
-        } else if (marioForm == 2) { //fire mario
+        } else if (marioForm == 2) { //fire mario AKA basic wasa fed a mushroom 
             col = 8;
             width = 48;
             height = 96;

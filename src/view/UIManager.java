@@ -8,7 +8,7 @@ package view;
  *
  * @author Admin
  */
-public class StartScreenSelection {
+public class UIManager {
 
     /**
      * @param args the command line arguments
