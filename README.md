@@ -1,4 +1,4 @@
-Presentation Day: 11/12
+Presentation Day: 16/12
 
 deadline for Media and Docs class: 28/12 (khanh)
 deadline for View class (Tan)
