@@ -30,13 +30,6 @@ public abstract class GameObject {
         if(style != null){
             g.drawImage(style, (int)x, (int)y, null);
         }
-        //for debugging
-        /*Graphics2D g2 = (Graphics2D)g;
-        g2.setColor(Color.WHITE);
-        g2.draw(getTopBounds());
-        g2.draw(getBottomBounds());
-        g2.draw(getRightBounds());
-        g2.draw(getLeftBounds());*/
     }
 
     public void updateLocation() {
@@ -117,25 +110,22 @@ public abstract class GameObject {
         this.gravityAcc = gravityAcc;
     }
 
-    public Rectangle getTopBounds(){
+    public Rectangle getBounds(){ //create a rectangle to check if this object touch another object
+        return new Rectangle((int)x, (int)y, dimension.width, dimension.height);
+    }
+    public Rectangle getTopBounds(){ //top side
         return new Rectangle((int)x+dimension.width/6, (int)y, 2*dimension.width/3, dimension.height/2);
     }
-
-    public Rectangle getBottomBounds(){
+    public Rectangle getBottomBounds(){ //under side
         return new Rectangle((int)x+dimension.width/6, (int)y + dimension.height/2, 2*dimension.width/3, dimension.height/2);
     }
-
-    public Rectangle getLeftBounds(){
+    public Rectangle getLeftBounds(){ //left side
         return new Rectangle((int)x, (int)y + dimension.height/4, dimension.width/4, dimension.height/2);
     }
-
-    public Rectangle getRightBounds(){
+    public Rectangle getRightBounds(){ //right side
         return new Rectangle((int)x + 3*dimension.width/4, (int)y + dimension.height/4, dimension.width/4, dimension.height/2);
     }
 
-    public Rectangle getBounds(){
-        return new Rectangle((int)x, (int)y, dimension.width, dimension.height);
-    }
 
     public boolean isFalling() {
         return falling;
