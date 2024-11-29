@@ -12,7 +12,7 @@ public class Coin extends GameObject implements Prize{
 
     private int point;
     private boolean revealed, acquired = false;
-    private int revealBoundary; //when collect the coin will pop up...
+    private int revealBoundary; //the boundary that the coin reveal when collected
 
     public Coin(double x, double y, BufferedImage style, int point){//constructor
         super(x, y, style);
