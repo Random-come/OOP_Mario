@@ -7,7 +7,7 @@ public abstract class GameObject {
 
     private double x, y;
     private double velX, velY;
-    private Dimension dimension;
+    private Dimension dimension;//width and height of object
     private BufferedImage style;
     private double gravityAcc;
     private boolean falling, jumping;
