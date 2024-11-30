@@ -15,7 +15,7 @@ public class Animation {
     }
 
     public BufferedImage animate(int speed, boolean toRight){
-        count++;
+        count+=1;
         BufferedImage[] frames = toRight ? rightFrames : leftFrames;
 
         if(count > speed){
