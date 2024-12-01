@@ -15,6 +15,7 @@ public class SoundManager {
     private long clipTime = 0;
     private FloatControl backgroundControl;
     private List<Clip> activeClips; // List to hold active sound clips
+    private float currentVolume = -20.0f; // Default volume for sound effects
 
     public SoundManager() {
         activeClips = new ArrayList<>(); // Initialize the list
@@ -49,6 +50,7 @@ public class SoundManager {
 
     public void setVolume(float volume) {
         float gain = Math.max(-80.0f, Math.min(6.0f, volume));
+        currentVolume = gain; // Store the current volume level
 
         // Set volume for background clip
         if (backgroundControl != null) {
@@ -123,7 +125,7 @@ public class SoundManager {
                 // Set the volume for the newly created clip
                 FloatControl control = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
                 if (control != null) {
-                    control.setValue(-20.0f); // Set initial volume for the sound effect
+                    control.setValue(currentVolume); // Use the stored volume level
                 }
                 clip.start();
             }
