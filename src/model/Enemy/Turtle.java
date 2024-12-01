@@ -5,7 +5,7 @@ public class Turtle extends Enemy {
     private BufferedImage image;
     public Turtle(double x,double y,BufferedImage style){
         super(x,y,style);
-        setVelX(2.5);
+        setVelX(10);
     }
     
     public BufferedImage image(){
