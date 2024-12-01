@@ -14,7 +14,7 @@ public class SoundManager {
     private FloatControl backgroundControl;
 
     public SoundManager() {
-        background = getClip(loadAudio("thien ly oi"));
+        background = getClip(loadAudio("background"));
         if (background != null) {
             backgroundControl = (FloatControl) background.getControl(FloatControl.Type.MASTER_GAIN);
         }
