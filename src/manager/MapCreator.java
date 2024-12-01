@@ -19,7 +19,7 @@ class MapCreator {
     private BufferedImage backgroundImage;
     private BufferedImage superMushroom, oneUpMushroom, fireFlower, coin;
     private BufferedImage ordinaryBrick, surpriseBrick, groundBrick, pipe;
-    private BufferedImage goombaLeft, goombaRight, koopaLeft, koopaRight, endFlag;
+    private BufferedImage turtleLeft, turtleRight, endFlag;
 
 
     MapCreator(ImageLoader imageLoader) {
@@ -36,10 +36,8 @@ class MapCreator {
         this.surpriseBrick = imageLoader.getSubImage(sprite, 2, 1, 48, 48);
         this.groundBrick = imageLoader.getSubImage(sprite, 2, 2, 48, 48);
         this.pipe = imageLoader.getSubImage(sprite, 3, 1, 96, 96);
-        this.goombaLeft = imageLoader.getSubImage(sprite, 2, 4, 48, 48);
-        this.goombaRight = imageLoader.getSubImage(sprite, 5, 4, 48, 48);
-        this.koopaLeft = imageLoader.getSubImage(sprite, 1, 3, 48, 64);
-        this.koopaRight = imageLoader.getSubImage(sprite, 4, 3, 48, 64);
+        this.turtleLeft = imageLoader.getSubImage(sprite, 2, 4, 48, 48);
+        this.turtleRight = imageLoader.getSubImage(sprite, 5, 4, 48, 48);
         this.endFlag = imageLoader.getSubImage(sprite, 5, 1, 48, 48);
 
     }
@@ -64,7 +62,6 @@ class MapCreator {
         int groundBrick = new Color(255, 0, 0).getRGB();
         int pipe = new Color(0, 255, 0).getRGB();
         int goomba = new Color(0, 255, 255).getRGB();
-        int koopa = new Color(255, 0, 255).getRGB();
         int end = new Color(160, 0, 160).getRGB();
 
         for (int x = 0; x < mapImage.getWidth(); x++) {
@@ -92,8 +89,8 @@ class MapCreator {
                     createdMap.addGroundBrick(brick);
                 }
                 else if (currentPixel == goomba) {
-                    Enemy enemy = new Turtle(xLocation, yLocation, this.goombaLeft);
-                    ((Turtle)enemy).setRightImage(goombaRight);
+                    Enemy enemy = new Turtle(xLocation, yLocation, this.turtleLeft);
+                    ((Turtle)enemy).setRightImage(turtleRight);
                     createdMap.addEnemy(enemy);
                 }
                 else if (currentPixel == mario) {
