@@ -3,6 +3,7 @@ package manager;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 import java.io.BufferedInputStream;
 import java.io.InputStream;
 
@@ -10,9 +11,13 @@ public class SoundManager {
 
     private Clip background;
     private long clipTime = 0;
+    private FloatControl backgroundControl;
 
     public SoundManager() {
         background = getClip(loadAudio("background"));
+        if (background != null) {
+            backgroundControl = (FloatControl) background.getControl(FloatControl.Type.MASTER_GAIN);
+        }
     }
 
     private AudioInputStream loadAudio(String url) {
@@ -40,12 +45,20 @@ public class SoundManager {
         return null;
     }
 
-    public void resumeBackground(){
+    public void setVolume(float volume) {
+        if (backgroundControl != null) {
+            // Map the volume to the range of -80.0 to 6.0 dB
+            float gain = Math.max(-80.0f, Math.min(6.0f, volume));
+            backgroundControl.setValue(gain);
+        }
+    }
+
+    public void resumeBackground() {
         background.setMicrosecondPosition(clipTime);
         background.start();
     }
 
-    public void pauseBackground(){
+    public void pauseBackground() {
         clipTime = background.getMicrosecondPosition();
         background.stop();
     }
@@ -58,54 +71,44 @@ public class SoundManager {
     public void playJump() {
         Clip clip = getClip(loadAudio("jump"));
         clip.start();
-
     }
 
     public void playCoin() {
         Clip clip = getClip(loadAudio("coin"));
         clip.start();
-
     }
 
     public void playFireball() {
         Clip clip = getClip(loadAudio("fireball"));
         clip.start();
-
     }
 
     public void playGameOver() {
         Clip clip = getClip(loadAudio("gameOver"));
         clip.start();
-
     }
 
     public void playStomp() {
         Clip clip = getClip(loadAudio("stomp"));
         clip.start();
-
     }
 
     public void playOneUp() {
         Clip clip = getClip(loadAudio("oneUp"));
         clip.start();
-
     }
 
     public void playSuperMushroom() {
-
         Clip clip = getClip(loadAudio("superMushroom"));
         clip.start();
-
     }
 
     public void playMarioDies() {
-
         Clip clip = getClip(loadAudio("marioDies"));
         clip.start();
-
     }
 
     public void playFireFlower() {
-
+        // Implement playFireFlower if needed
     }
 }
