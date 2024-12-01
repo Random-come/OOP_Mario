@@ -92,13 +92,8 @@ class MapCreator {
                     createdMap.addGroundBrick(brick);
                 }
                 else if (currentPixel == goomba) {
-                    Enemy enemy = new Goomba(xLocation, yLocation, this.goombaLeft);
-                    ((Goomba)enemy).setRightImage(goombaRight);
-                    createdMap.addEnemy(enemy);
-                }
-                else if (currentPixel == koopa) {
-                    Enemy enemy = new KoopaTroopa(xLocation, yLocation, this.koopaLeft);
-                    ((KoopaTroopa)enemy).setRightImage(koopaRight);
+                    Enemy enemy = new Turtle(xLocation, yLocation, this.goombaLeft);
+                    ((Turtle)enemy).setRightImage(goombaRight);
                     createdMap.addEnemy(enemy);
                 }
                 else if (currentPixel == mario) {
