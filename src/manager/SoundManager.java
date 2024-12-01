@@ -6,14 +6,18 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
 import java.io.BufferedInputStream;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SoundManager {
 
     private Clip background;
     private long clipTime = 0;
     private FloatControl backgroundControl;
+    private List<Clip> activeClips; // List to hold active sound clips
 
     public SoundManager() {
+        activeClips = new ArrayList<>(); // Initialize the list
         background = getClip(loadAudio("background"));
         if (background != null) {
             backgroundControl = (FloatControl) background.getControl(FloatControl.Type.MASTER_GAIN);
@@ -25,11 +29,9 @@ public class SoundManager {
             InputStream audioSrc = getClass().getResourceAsStream("/media/audio/" + url + ".wav");
             InputStream bufferedIn = new BufferedInputStream(audioSrc);
             return AudioSystem.getAudioInputStream(bufferedIn);
-
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
-
         return null;
     }
 
@@ -37,19 +39,28 @@ public class SoundManager {
         try {
             Clip clip = AudioSystem.getClip();
             clip.open(stream);
+            activeClips.add(clip); // Add the clip to the active list
             return clip;
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return null;
     }
 
     public void setVolume(float volume) {
+        float gain = Math.max(-80.0f, Math.min(6.0f, volume));
+
+        // Set volume for background clip
         if (backgroundControl != null) {
-            // Map the volume to the range of -80.0 to 6.0 dB
-            float gain = Math.max(-80.0f, Math.min(6.0f, volume));
             backgroundControl.setValue(gain);
+        }
+
+        // Set volume for all active clips
+        for (Clip clip : activeClips) {
+            FloatControl control = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+            if (control != null) {
+                control.setValue(gain);
+            }
         }
     }
 
@@ -69,46 +80,53 @@ public class SoundManager {
     }
 
     public void playJump() {
-        Clip clip = getClip(loadAudio("jump"));
-        clip.start();
+        playSound("jump");
     }
 
     public void playCoin() {
-        Clip clip = getClip(loadAudio("coin"));
-        clip.start();
+        playSound("coin");
     }
 
     public void playFireball() {
-        Clip clip = getClip(loadAudio("fireball"));
-        clip.start();
+        playSound("fireball");
     }
 
     public void playGameOver() {
-        Clip clip = getClip(loadAudio("gameOver"));
-        clip.start();
+        playSound("gameOver");
     }
 
     public void playStomp() {
-        Clip clip = getClip(loadAudio("stomp"));
-        clip.start();
+        playSound("stomp");
     }
 
     public void playOneUp() {
-        Clip clip = getClip(loadAudio("oneUp"));
-        clip.start();
+        playSound("oneUp");
     }
 
     public void playSuperMushroom() {
-        Clip clip = getClip(loadAudio("superMushroom"));
-        clip.start();
+        playSound("superMushroom");
     }
 
     public void playMarioDies() {
-        Clip clip = getClip(loadAudio("marioDies"));
-        clip.start();
+        playSound("marioDies");
     }
 
     public void playFireFlower() {
-        // Implement playFireFlower if needed
+        playSound("fireFlower");
+    }
+
+    private void playSound(String sound) {
+        AudioInputStream audioStream = loadAudio(sound);
+        if (audioStream != null) {
+            Clip clip = getClip(audioStream);
+            if (clip != null) {
+                // Set the volume for the newly created clip
+                FloatControl control = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+                if (control != null) {
+                    control.setValue(-20.0f); // Set initial volume for the sound effect
+                }
+                clip.start();
+            }
+        }
     }
 }
