@@ -1,4 +1,4 @@
-package model.enemy;
+package model.Enemy;
 import java.awt.image.BufferedImage;
 import java.awt.*;
 public class Turtle extends Enemy {

@@ -4,7 +4,7 @@ import model.GameObject;
 import model.Map;
 import model.brick.Brick;
 import model.brick.OrdinaryBrick;
-import model.enemy.Enemy;
+import model.Enemy.Enemy;
 import model.hero.Fireball;
 import model.hero.Mario;
 import model.prize.BoostItem;
