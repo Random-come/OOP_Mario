@@ -5,9 +5,8 @@ import model.brick.*;
 import model.prize.*;
 import view.ImageLoader;
 import model.Map;
-import model.enemy.Enemy;
-import model.enemy.Goomba;
-import model.enemy.KoopaTroopa;
+import model.Enemy.Enemy;
+import model.Enemy.Turtle;
 import model.hero.Mario;
 
 import java.awt.*;
