@@ -49,7 +49,7 @@ public class Mario extends GameObject{
     public void jump(GameEngine engine) {
         if(!isJumping() && !isFalling()){  //state when mario stay at the ground (the mario Y= ground brick Y)
             setJumping(true);
-            setVelY(10);
+            setVelY(12);
             engine.playJump();
         }
     }
