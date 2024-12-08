@@ -337,10 +337,6 @@ public class GameEngine extends javax.swing.JFrame implements Runnable {
         return mapManager;
     }
 
-    private void setGameIcon() {
-
-    }
-
     public static void main(String... args) {
 
         new GameEngine();
