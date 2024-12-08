@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 
 public class MarioForm {
 
-    public static final int SMALL = 0, SUPER = 1, FIRE = 2;
+    public static final int SMALL = 0, SUPER = 1, FIRE = 2;//identify mario current state
 
     private Animation animation;
     private boolean isSuper, isFire; //note: fire form has priority over super form
@@ -36,7 +36,7 @@ public class MarioForm {
         else if(movingInX){
             style = animation.animate(5, toRight);
         }
-        else {
+        else {//mario not moving -> standing frame based on direction
             if(toRight){
                 style = animation.getRightFrames()[1];
             }
@@ -47,7 +47,7 @@ public class MarioForm {
         return style;
     }
 
-    public MarioForm onTouchEnemy(ImageLoader imageLoader) {
+    public MarioForm onTouchEnemy(ImageLoader imageLoader) {//create mario frame after enemy touch
         BufferedImage[] leftFrames = imageLoader.getLeftFrames(0);
         BufferedImage[] rightFrames= imageLoader.getRightFrames(0);
 

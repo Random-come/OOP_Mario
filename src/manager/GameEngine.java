@@ -4,7 +4,6 @@ import model.hero.Mario;
 import view.ImageLoader;
 import view.StartScreenSelection;
 import view.UIManager;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -337,10 +336,6 @@ public class GameEngine extends javax.swing.JFrame implements Runnable {
     public MapManager getMapManager() {
         return mapManager;
     }
-
-    private void setGameIcon() {
-    setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getClassLoader().getResource("media/Bros.png.png")));
-}
 
     public static void main(String... args) {
 
