@@ -39,6 +39,7 @@ public class GameEngine implements Runnable {
         soundManager.setVolume(-40.0f);//change volume -80.0f -> 6.0f
 
         JFrame frame = new JFrame("Super Mario Bros.");
+        frame.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getClassLoader().getResource("media/Bros.png")));
         frame.add(uiManager);
         frame.addKeyListener(inputManager);
         frame.addMouseListener(inputManager);
@@ -336,6 +337,10 @@ public class GameEngine implements Runnable {
     public MapManager getMapManager() {
         return mapManager;
     }
+
+    private void setGameIcon() {
+    setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getClassLoader().getResource("media/Bros.png.png")));
+}
 
     public static void main(String... args) {
 
