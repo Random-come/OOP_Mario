@@ -4,7 +4,6 @@ import model.hero.Mario;
 import view.ImageLoader;
 import view.StartScreenSelection;
 import view.UIManager;
-
 import javax.swing.*;
 import java.awt.*;
 
