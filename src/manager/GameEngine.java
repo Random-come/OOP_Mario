@@ -8,7 +8,7 @@ import view.UIManager;
 import javax.swing.*;
 import java.awt.*;
 
-public class GameEngine implements Runnable {
+public class GameEngine extends javax.swing.JFrame implements Runnable {
 
     private final static int WIDTH = 1268, HEIGHT = 708;
 
