@@ -341,10 +341,6 @@ public class GameEngine extends javax.swing.JFrame implements Runnable {
 
     }
 
-    private void setIconImage(Image image) {
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getClassLoader().getResource("media/Bros.png")));
-    }
-
     public static void main(String... args) {
 
         new GameEngine();
