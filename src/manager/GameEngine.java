@@ -339,8 +339,11 @@ public class GameEngine implements Runnable {
     }
 
     private void setGameIcon() {
-    setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getClassLoader().getResource("media/Bros.png.png")));
-}
+
+    }
+
+    private void setIconImage(Image image) {
+    }
 
     public static void main(String... args) {
 
