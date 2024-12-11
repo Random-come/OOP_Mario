@@ -7,7 +7,7 @@ public class GameObject {
 
     private double x, y;
     private double velX, velY;
-    private Dimension dimension;//width and height of object
+    private Dimension dimension;
     private BufferedImage style;
     private double gravityAcc;
     private boolean falling, jumping;
@@ -25,7 +25,7 @@ public class GameObject {
         falling = true;
     }
 
-    public void draw(Graphics g) {//render object
+    public void draw(Graphics g) {
         BufferedImage style = getStyle();
         if(style != null){
             g.drawImage(style, (int)x, (int)y, null);
@@ -33,17 +33,16 @@ public class GameObject {
     }
 
     public void updateLocation() {
-        if(jumping && velY <= 0){//reach the peak of jumping -> falling
+        if(jumping && velY <= 0){
             jumping = false;
             falling = true;}
-        else if(jumping){//while jumping state
+        else if(jumping){
             velY = velY - gravityAcc;
             y = y - velY;}
-        if(falling){//while falling state
+        if(falling){
             y = y + velY;
             velY = velY + gravityAcc;}
-
-        x = x + velX;//update location when running
+        x = x + velX;
     }
 
     //Getter and Setter
