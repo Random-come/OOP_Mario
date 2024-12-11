@@ -22,7 +22,7 @@ public class SurpriseBrick extends Brick{
     @Override
     public Prize reveal(GameEngine engine){
         BufferedImage newStyle = engine.getImageLoader().loadImage("/sprite.png");
-        newStyle = engine.getImageLoader().getSubImage(newStyle, 1, 2, 48, 48);
+        newStyle = engine.getImageLoader().getSubImage(newStyle, 1, 2, 48, 48);// channge into a blank brick
 
         if(prize != null){
             prize.reveal();
