@@ -43,7 +43,7 @@ public class GameObject {
             y = y + velY;
             velY = velY + gravityAcc;}
 
-        x = x + velX;
+        x = x + velX;//update location when running
     }
 
     //Getter and Setter
