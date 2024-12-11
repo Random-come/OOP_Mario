@@ -4,11 +4,6 @@
  */
 package view;
 
-/**
- *
- * @author Admin
- */
-
 /// This class designed to manage the choices in the Super Mario Bros. game start screen.
 /// Think of it as a 'console' for the player's initial options.
 
