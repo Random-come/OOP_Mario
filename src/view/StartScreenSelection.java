@@ -4,10 +4,11 @@
  */
 package view;
 
-/**
- *
- * @author Admin
- */
+/// This class designed to manage the choices in the Super Mario Bros. game start screen.
+/// Think of it as a 'console' for the player's initial options.
+
+
+// Each selection will declare to a number for processing
 public enum StartScreenSelection {
     START_GAME(0),
     VIEW_HELP(1),
@@ -29,9 +30,12 @@ public enum StartScreenSelection {
         } else {
             return null;
         }
+    // Change number into suitable selection
 
     }
 
+
+    // Give player permission to move up or down for selecting
     public StartScreenSelection select(boolean toUp) {
         int selection;
 

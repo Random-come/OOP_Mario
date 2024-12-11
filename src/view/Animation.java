@@ -1,6 +1,6 @@
 package view;
 import java.awt.image.BufferedImage;
-
+//This take responsibility for managing and controlling frames movement of Mario
 public class Animation {
 
     private int index = 0, count = 0;
@@ -14,14 +14,16 @@ public class Animation {
         currentFrame = rightFrames[1];
     }
 
+
+// This is a main method doing that jobs
     public BufferedImage animate(int speed, boolean toRight){
-        count+=1;
+        count+=1;// control a speed of animations
         BufferedImage[] frames = toRight ? rightFrames : leftFrames;
 
         if(count > speed){
             nextFrame(frames);
             count = 0;
-        }
+        }// if count is larger than speed, it will call nextFrame()
 
         return currentFrame;
     }
@@ -29,9 +31,10 @@ public class Animation {
     private void nextFrame(BufferedImage[] frames) {
         if(index + 3 > frames.length)
             index = 0;
+        //If the next frame exceed the frames, return the first frame
 
-        currentFrame = frames[index+2];
-        index++;
+        currentFrame = frames[index+2];// select next frame
+        index++;// increase index for preparing the next frame
     }
 
     public BufferedImage[] getLeftFrames() {

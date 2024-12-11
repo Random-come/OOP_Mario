@@ -3,19 +3,22 @@ package view;
 import java.awt.*;
 import java.util.ArrayList;
 
-
+// This class give player permission for  select map to play
 public class MapSelection {
 
     private ArrayList<String> maps = new ArrayList<>();
     private MapSelectionItem[] mapSelectionItems;
 
+    //Performs two main tasks:
+    ///  Get a list of maps
+    ///  Create items corresponding to the maps
     public MapSelection(){
         getMaps();
         this.mapSelectionItems = createItems(this.maps);
     }
 
     public void draw(Graphics g){
-        g.setColor(Color.BLACK);
+        g.setColor(Color.BLACK);///turn color of screen to black color
         g.fillRect(0,0, 1280, 720);
 
         if(mapSelectionItems == null){
@@ -23,6 +26,7 @@ public class MapSelection {
             return;
         }
 
+        /// Create all item relate to maps
         String title = "Select a Map";
         int x_location = (1280 - g.getFontMetrics().stringWidth(title))/2;
         g.setColor(Color.YELLOW);
@@ -38,12 +42,14 @@ public class MapSelection {
         }
     }
 
+    /// Generate 2 current maps which already have in resource
     private void getMaps(){
         //TODO: read from file
         maps.add("Map 1.png");
         maps.add("Map 2.png");
     }
 
+    ///  Change array to selectable item for player
     private MapSelectionItem[] createItems(ArrayList<String> maps){
         if(maps == null)
             return null;
@@ -59,11 +65,14 @@ public class MapSelection {
     }
 
     public String selectMap(Point mouseLocation) {
+
+        /// check if the player's mouse was on a map item
         for(MapSelectionItem item : mapSelectionItems) {
             Dimension dimension = item.getDimension();
             Point location = item.getLocation();
             boolean inX = location.x <= mouseLocation.x && location.x + dimension.width >= mouseLocation.x;
             boolean inY = location.y >= mouseLocation.y && location.y - dimension.height <= mouseLocation.y;
+            /// Return map's name if correct
             if(inX && inY){
                 return item.getName();
             }
@@ -71,12 +80,15 @@ public class MapSelection {
         return null;
     }
 
+    ///  Give player permission select Map by number
     public String selectMap(int index){
         if(index < mapSelectionItems.length && index > -1)
             return mapSelectionItems[index].getName();
         return null;
     }
 
+
+    /// Support when player want to choose another map
     public int changeSelectedMap(int index, boolean up) {
         if(up){
             if(index <= 0)

@@ -13,20 +13,20 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-
+/// This Manage Map's information
 public class MapSelectionItem {
 
-    private BufferedImage image;
-    private String name;
-    private Point location;
-    private Dimension dimension;
+    private BufferedImage image;  // map image
+    private String name;          // map file name
+    private Point location;       // location to display
+    private Dimension dimension;  // Size of map Item
 
     public MapSelectionItem(String map, Point location){
         this.location = location;
         this.name = map;
 
         ImageLoader loader = new ImageLoader();
-        this.image = loader.loadImage("/maps/" + map);
+        this.image = loader.loadImage("/maps/" + map);//load the map
 
         this.dimension = new Dimension();
     }
