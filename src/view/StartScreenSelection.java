@@ -15,11 +15,12 @@ public enum StartScreenSelection {
     VIEW_ABOUT(2);
 
     private final int lineNumber;
+    //Save line location with each selection
 
     StartScreenSelection(int lineNumber) {
         this.lineNumber = lineNumber;
     }
-
+    // When player select declare a number for lineNumber
     public StartScreenSelection getSelection(int number) {
         if (number == 0) {
             return START_GAME;

@@ -8,19 +8,21 @@ package view;
  *
  * @author Admin
  */
+
+//THis class's name already explain what it job
 import manager.GameEngine;
 import manager.GameStatus;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
 public class UIManager extends JPanel{
 
     private GameEngine engine;
+    // references of GameEngine for managing game status
     private Font gameFont;
     private BufferedImage startScreenImage, aboutScreenImage, helpScreenImage, gameOverScreen;
     private BufferedImage heartIcon;
@@ -32,12 +34,13 @@ public class UIManager extends JPanel{
         setPreferredSize(new Dimension(width, height));
         setMaximumSize(new Dimension(width, height));
         setMinimumSize(new Dimension(width, height));
-
+        // references of GameEngine for managing game status
         this.engine = engine;
+        //Create ImageLoader from GameEngine to download images
         ImageLoader loader = engine.getImageLoader();
 
         mapSelection = new MapSelection();
-
+        // Load all crucial image
         BufferedImage sprite = loader.loadImage("/sprite.png");
         this.heartIcon = loader.loadImage("/heart-icon.png");
         this.coinIcon = loader.getSubImage(sprite, 1, 5, 48, 48);
@@ -47,6 +50,7 @@ public class UIManager extends JPanel{
         this.aboutScreenImage = loader.loadImage("/about-screen.png");
         this.gameOverScreen = loader.loadImage("/game-over.png");
 
+        //load the font
         try {
             InputStream in = getClass().getResourceAsStream("/media/font/mario-font.ttf");
             gameFont = Font.createFont(Font.TRUETYPE_FONT, in);
@@ -100,6 +104,8 @@ public class UIManager extends JPanel{
         g2.dispose();
     }
 
+
+    // methods that draw details in game window
     private void drawRemainingTime(Graphics2D g2) {
         g2.setFont(gameFont.deriveFont(25f));
         g2.setColor(Color.WHITE);
@@ -181,6 +187,8 @@ public class UIManager extends JPanel{
         g2.drawImage(selectIcon, 375, y_location, null);
     }
 
+
+    //Supporter for selecting map
     public String selectMapViaMouse(Point mouseLocation) {
         return mapSelection.selectMap(mouseLocation);
     }
