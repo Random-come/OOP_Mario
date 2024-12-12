@@ -35,7 +35,7 @@ public class GameEngine extends javax.swing.JFrame implements Runnable {
         soundManager = new SoundManager();
         mapManager = new MapManager();
 
-        soundManager.setVolume(-40.0f);//change volume -80.0f -> 6.0f
+        soundManager.setVolume(-20.0f);//change volume -80.0f -> 6.0f
 
         JFrame frame = new JFrame("Super Mario Bros.");
         frame.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getClassLoader().getResource("media/Bros.png")));
