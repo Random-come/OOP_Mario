@@ -33,7 +33,7 @@ public class Animation {
             index = 0;
         //If the next frame exceed the frames, return the first frame
 
-        currentFrame = frames[index+2];// select next frame
+        currentFrame = frames[index+1];// select next frame
         index++;// increase index for preparing the next frame
     }
 
