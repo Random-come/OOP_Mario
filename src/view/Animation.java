@@ -4,7 +4,7 @@ import java.awt.image.BufferedImage;
 public class Animation {
 
     private int index = 0, count = 0;
-    private BufferedImage[] leftFrames, rightFrames;
+    private final BufferedImage[] leftFrames, rightFrames;
     private BufferedImage currentFrame;
 
     public Animation(BufferedImage[] leftFrames, BufferedImage[] rightFrames){
@@ -15,14 +15,14 @@ public class Animation {
     }
 
 
-// This is a main method doing that jobs
+// This is main method doing that jobs
     public BufferedImage animate(int speed, boolean toRight){
         count+=1;// control a speed of animations
         BufferedImage[] frames = toRight ? rightFrames : leftFrames;
 
         if(count > speed){
             nextFrame(frames);
-            count = 0;
+            count = 0;// reset count
         }// if count is larger than speed, it will call nextFrame()
 
         return currentFrame;
