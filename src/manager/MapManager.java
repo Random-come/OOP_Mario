@@ -121,7 +121,7 @@ public class MapManager {
         for (Brick brick : bricks) {
             Rectangle brickTopBounds = brick.getTopBounds();
             if (marioBottomBounds.intersects(brickTopBounds)) {
-                mario.setY(brick.getY() - mario.getDimension().height + 1);
+                mario.setY(brick.getY() - mario.getDimension().height + 1);// +1 to avoid collapse overlaps error
                 mario.setFalling(false);
                 mario.setVelY(0);
             }

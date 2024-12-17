@@ -110,7 +110,7 @@ public class GameObject {
         this.gravityAcc = gravityAcc;
     }
 
-    public Rectangle getBounds(){ //create a rectangle to check if this object touch another object
+    public Rectangle getBounds() {//create a rectangle to check if this object touch another object
         return new Rectangle((int)x, (int)y, dimension.width, dimension.height);
     }
     public Rectangle getTopBounds(){ //top side

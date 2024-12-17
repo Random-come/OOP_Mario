@@ -95,7 +95,7 @@ public class Map {
 
     private void drawPrizes(Graphics2D g2) {
         for(Prize prize : revealedPrizes){
-            if(prize instanceof Coin){
+            if(prize instanceof Coin){// type cast -> use method of specific class
                 ((Coin) prize).draw(g2);
             }
             else if(prize instanceof  BoostItem){
@@ -137,7 +137,7 @@ public class Map {
         }
 
         for(Iterator<Prize> prizeIterator = revealedPrizes.iterator(); prizeIterator.hasNext();){
-            Prize prize = prizeIterator.next();
+            Prize prize = prizeIterator.next();//advanced iterator
             if(prize instanceof Coin){
                 ((Coin) prize).updateLocation();
                 if(((Coin) prize).getRevealBoundary() > ((Coin) prize).getY()){
