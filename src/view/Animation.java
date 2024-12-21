@@ -31,7 +31,7 @@ public class Animation {
     private void nextFrame(BufferedImage[] frames) {
         if(index + 3 > frames.length)
             index = 0;
-        //If the next frame exceed the frames, return the first frame
+        //If the next frame exceed the frames, return the first frame. Mario stand
 
         currentFrame = frames[index+1];// select next frame
         index++;// increase index for preparing the next frame

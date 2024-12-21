@@ -34,7 +34,7 @@ public class MarioForm {
             style = animation.getLeftFrames()[0];
         }
         else if(movingInX){
-            style = animation.animate(5, toRight);
+            style = animation.animate(130, toRight);
         }
         else {//mario not moving -> standing frame based on direction
             if(toRight){
