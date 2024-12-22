@@ -3,9 +3,10 @@ import java.awt.image.BufferedImage;
 //This take responsibility for managing and controlling frames movement of Mario
 public class Animation {
 
-    private int index = 0, count = 0;
     private final BufferedImage[] leftFrames, rightFrames;
     private BufferedImage currentFrame;
+    private int index = 0, count = 0;
+
 
     public Animation(BufferedImage[] leftFrames, BufferedImage[] rightFrames){
         this.leftFrames = leftFrames;
